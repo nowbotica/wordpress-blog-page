@@ -1,0 +1,22 @@
+.ot-paginate-previous {
+	width:50%;
+	float: left;
+}
+.ot-paginate-previous p {
+	text-align:left;
+	text-transform: uppercase;
+}
+.ot-paginate-next {
+	width:50%;
+	float: right;
+}
+.ot-paginate-next p {
+	text-align:right;
+	text-transform: uppercase;
+}
+
+.ot-paginate-previous .dashicons,
+.ot-paginate-next .dashicons {
+	color: #c1c1c2;
+}
+
