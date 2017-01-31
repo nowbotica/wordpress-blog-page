@@ -178,7 +178,7 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
 // add_filter( 'template_include', 'ot_blog_page_template', 99 );
 
 
-add_image_size('blog-image-12', 945, 531, true);
+add_image_size('blog-img-12', 945, 531, true);
 add_image_size('blog-img-6', 576, 326, true);
 add_image_size('blog-img-4', 295, 166, true);
 
