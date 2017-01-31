@@ -16,35 +16,50 @@ function snwb_settings_init(  ) {
 
 	add_settings_section(
 		'snwb_pluginPage_section', 
-		__( 'Your section description', 'wordpress' ), 
+		__( 'Configuration of blog landing page', 'wordpress' ), 
 		'snwb_settings_section_callback', 
 		'pluginPage'
 	);
-    /*
+    
 	add_settings_field( 
-		'snwb_checkbox_field_0', 
-		__( 'Settings field description', 'wordpress' ), 
-		'snwb_checkbox_field_0_render', 
+		'snwb_show_blog_landing_page_checkbox', 
+		__( 'Show custom landing page?', 'wordpress' ), 
+		'snwb_show_blog_landing_page_checkbox_render', 
 		'pluginPage', 
 		'snwb_pluginPage_section' 
 	);
 
 	add_settings_field( 
-		'snwb_text_field_1', 
-		__( 'Settings field description', 'wordpress' ), 
-		'snwb_text_field_1_render', 
+		'snwb_show_lp_recent_slides_checkbox', 
+		__( 'Show Recent Slides on landing page?', 'wordpress' ), 
+		'snwb_show_lp_recent_slides_render', 
+		'pluginPage', 
+		'snwb_pluginPage_section' 
+	);
+	add_settings_field( 
+		'snwb_show_lp_cat_grid_checkbox', 
+		__( 'Show Category Grid on landing page?', 'wordpress' ), 
+		'snwb_show_lp_cat_grid_render', 
 		'pluginPage', 
 		'snwb_pluginPage_section' 
 	);
 
-	add_settings_field( 
-		'snwb_radio_field_2', 
-		__( 'Settings field description', 'wordpress' ), 
-		'snwb_radio_field_2_render', 
-		'pluginPage', 
-		'snwb_pluginPage_section' 
-	);
-	*/
+	// add_settings_field( 
+	// 	'snwb_text_field_1', 
+	// 	__( 'Settings field description', 'wordpress' ), 
+	// 	'snwb_text_field_1_render', 
+	// 	'pluginPage', 
+	// 	'snwb_pluginPage_section' 
+	// );
+
+	// add_settings_field( 
+	// 	'snwb_radio_field_2', 
+	// 	__( 'Settings field description', 'wordpress' ), 
+	// 	'snwb_radio_field_2_render', 
+	// 	'pluginPage', 
+	// 	'snwb_pluginPage_section' 
+	// );
+	
     // there is only six of these
 	add_settings_field( 
 		'snwb_blog_cat_select_1', 
@@ -95,17 +110,33 @@ function snwb_settings_init(  ) {
 
 }
 
-/*
-function snwb_checkbox_field_0_render(  ) { 
+function snwb_show_blog_landing_page_checkbox_render(  ) { 
 
 	$options = get_option( 'snwb_settings' );
 	?>
-	<input type='checkbox' name='snwb_settings[snwb_checkbox_field_0]' <?php checked( $options['snwb_checkbox_field_0'], 1 ); ?> value='1'>
+	<input type='checkbox' name='snwb_settings[snwb_show_blog_landing_page_checkbox]' <?php checked( $options['snwb_show_blog_landing_page_checkbox'], 1 ); ?> value='1'>
+	<?php
+
+}
+function snwb_show_lp_recent_slides_render(  ) { 
+
+	$options = get_option( 'snwb_settings' );
+	?>
+	<input type='checkbox' name='snwb_settings[snwb_show_lp_recent_slides]' <?php checked( $options['snwb_show_lp_recent_slides'], 1 ); ?> value='1'>
+	<?php
+
+}
+function snwb_show_lp_cat_grid_render(  ) { 
+
+	$options = get_option( 'snwb_settings' );
+	?>
+	<input type='checkbox' name='snwb_settings[snwb_show_lp_cat_grid]' <?php checked( $options['snwb_show_lp_cat_grid'], 1 ); ?> value='1'>
 	<?php
 
 }
 
-
+	
+/*
 function snwb_text_field_1_render(  ) { 
 
 	$options = get_option( 'snwb_settings' );

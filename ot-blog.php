@@ -113,6 +113,8 @@ Author URI: http://nowbotica.com/
 // }
 // add_filter( 'template_include', 'wcpt_template_loader' );
 
+
+include_once('includes/settings-page.php');
 /* ----
 Get template from current plugin dir 
 -----*/
@@ -153,7 +155,10 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
  */
 function ot_blog_page_template( $template ) {
 	if(is_home() && !is_front_page()): // blog
-		$new_template = dirname( __FILE__ ) . '/templates/blog-homepage.php';
+        $opts = get_option( 'snwb_settings' );
+        if( $opts['snwb_show_blog_landing_page_checkbox'] ){
+		  $new_template = dirname( __FILE__ ) . '/templates/blog-homepage.php';
+        }
 		if ( '' != $new_template ) {
 			return $new_template ;
 		}
@@ -168,7 +173,7 @@ add_image_size('blog-image-12', 945, 531, true);
 add_image_size('blog-img-6', 576, 326, true);
 add_image_size('blog-img-4', 295, 166, true);
 
-include_once('includes/settings-page.php');
+
 
 // add_image_size('blog-slide-full', 1170);
 
