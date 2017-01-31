@@ -10,7 +10,7 @@
 	<?php //get_template_part( 'parts/blog', 'menu'); ?>
 	<?php get_template_part( 'parts/layout', 'full-open' ); ?>
 	<?php //get_template_part( 'parts/layout', 'sidebar-open' ); ?>
-		<?php //include('parts/blog-recent-slides.php');?>
+		<?php include('parts/blog-recent-slides.php');?>
 		<div id="masonry" class="row">
 			<?php 
 			$args = array( 
