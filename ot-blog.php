@@ -122,17 +122,26 @@ add_filter( 'template_include', 'wpa3396_page_template' );
 function wpa3396_page_template( $page_template )
 {
     // if ( is_page( 'my-custom-page-slug' ) ) {}
-    if ( is_archive() ) {
-    	$page_template = dirname( __FILE__ ) . '/templates/archive.php';
+    if(is_home() && !is_front_page()) { // blog
+        $opts = get_option( 'snwb_settings' );
+        if( $opts['snwb_show_blog_landing_page_checkbox'] ){
+            $page_template = dirname( __FILE__ ) . '/templates/blog-homepage.php';
+        }
+        else {
+            $page_template = dirname( __FILE__ ) . '/templates/archive.php';
+        }
+    }
+    elseif ( is_archive() ) {
+        $page_template = dirname( __FILE__ ) . '/templates/archive.php';
     }
     elseif ( is_author() ) {
-    	$page_template = dirname( __FILE__ ) . '/templates/archive.php';
+        $page_template = dirname( __FILE__ ) . '/templates/archive.php';
     } 
     elseif ( is_category() ){
-    	$page_template = dirname( __FILE__ ) . '/templates/archive.php';
+        $page_template = dirname( __FILE__ ) . '/templates/archive.php';
     }
     elseif ( is_single() ) {
-    	$page_template = dirname( __FILE__ ) . '/templates/single.php';
+        $page_template = dirname( __FILE__ ) . '/templates/single.php';
     }
     elseif ( 'post' == get_post_type() ) {
     	$page_template = dirname( __FILE__ ) . '/templates/single.php';
@@ -153,20 +162,20 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
 /**
  * Sets custom template if blog is not homepage
  */
-function ot_blog_page_template( $template ) {
-	if(is_home() && !is_front_page()): // blog
-        $opts = get_option( 'snwb_settings' );
-        if( $opts['snwb_show_blog_landing_page_checkbox'] ){
-		  $new_template = dirname( __FILE__ ) . '/templates/blog-homepage.php';
-        }
-		if ( '' != $new_template ) {
-			return $new_template ;
-		}
-	endif;
+// function ot_blog_page_template( $template ) {
+// 	if(is_home() && !is_front_page()): // blog
+//         $opts = get_option( 'snwb_settings' );
+//         if( $opts['snwb_show_blog_landing_page_checkbox'] ){
+// 		  $new_template = dirname( __FILE__ ) . '/templates/blog-homepage.php';
+//         }
+// 		if ( '' != $new_template ) {
+// 			return $new_template ;
+// 		}
+// 	endif;
 
-	return $template;
-}
-add_filter( 'template_include', 'ot_blog_page_template', 99 );
+// 	return $template;
+// }
+// add_filter( 'template_include', 'ot_blog_page_template', 99 );
 
 
 add_image_size('blog-image-12', 945, 531, true);

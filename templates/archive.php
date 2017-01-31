@@ -10,7 +10,6 @@
 	<?php get_template_part( 'parts/layout', 'full-open' ); ?>
 	<?php //get_template_part( 'parts/layout', 'sidebar-open' ); ?>
 		<?php //get_template_part('parts/blog', 'recent-slides');?>
-		<?php include('parts/blog-recent-slides.php');?>
 		<?php if ( have_posts() ) : ?>
 			<div id="masonry" class="row">
 				<?php while ( have_posts() ) : the_post(); ?>

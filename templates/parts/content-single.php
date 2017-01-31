@@ -3,10 +3,6 @@
  * @package Snowbotica Wordpress Blog
  */
 ?>
-
-	<?php the_post_thumbnail('blog-img-4');?>
-	<?php the_post_thumbnail('blog-img-12');?>
-	<?php the_post_thumbnail('blog-img-6');?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'box' ); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>

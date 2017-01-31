@@ -1,3 +1,8 @@
+.ot-paginate {
+	float: left;
+	width:100%;
+	margin-bottom:20px;
+}
 .ot-paginate-previous {
 	width:50%;
 	float: left;
@@ -18,5 +23,10 @@
 .ot-paginate-previous .dashicons,
 .ot-paginate-next .dashicons {
 	color: #c1c1c2;
+}
+
+
+.entry-header {
+	margin-bottom:10px;
 }
 
